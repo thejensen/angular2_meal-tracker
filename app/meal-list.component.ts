@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Meal } from './meal,model';
 
 @Component({
-  selector: 'meal',
+  selector: 'meal-list',
   template: `
   <div class="container">
     <h1>Meal List</h1>
@@ -10,6 +10,6 @@ import { Meal } from './meal,model';
   `
 })
 
-export class MealComponent {
+export class MealListComponent {
 
 }
