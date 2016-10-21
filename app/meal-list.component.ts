@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
-import { Meal } from './meal,model';
+import { Component, Input } from '@angular/core';
+import { Meal } from './meal.model';
 
 @Component({
   selector: 'meal-list',
   template: `
-  <div class="container">
     <h1>Meal List</h1>
-  </div>
+    <div *ngFor="let meal of childMealList">
+      <p>{{ meal.name }}</p>
+    </div>
   `
 })
 
 export class MealListComponent {
+  @Input() childMealList: Meal[];
 
 }
