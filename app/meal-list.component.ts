@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Meal } from './meal.model';
 
 @Component({
@@ -15,17 +15,26 @@ import { Meal } from './meal.model';
     <div *ngFor="let currentMeal of childMealList | calories:selectedCal">
       <!-- meal-display is an element from MealComponent, which recieves each meal through the output here, which is the singular variable provided in the foreach loop through the childMealList provided through input from AppComponent.-->
       <meal-display [meal]="currentMeal"></meal-display>
+      <!-- Clicking this button emits the currentMeal that's available through the forloop via the editButtonHasBeenClicked function -->
+      <button (click)="editButtonHasBeenClicked(currentMeal)">Edit</button>
     </div>
   `
 })
 
 export class MealListComponent {
+  // received input from AppComponent through <meal-list>[childMealList]="masterMealList"</meal-list>
   @Input() childMealList: Meal[];
+  // An EventEmitter is an Angular class that sends data via the chained .emit(exampleData) function, which is used in the editButtonHasBeenClicked function. Actions have to be sent to their parent component, so that's how the child component EditMealComponent will receive the data from an action from this particular child Component. Because data flows from parent to child, we use the action here to send up to AppC and the data available there will be accessible to EditMealComponent.
+  @Output() clickSender = new EventEmitter();
   // selectedCal is set to "All Meals" by default for the selector and for the pipe...
   public selectedCal: string = "All Meals";
   // onChange changes the selectedCal value for input for the calories pipe, to display the list of meals by how many calories are in it.
   onChange(optionFromMenu) {
     this.selectedCal = optionFromMenu;
+  }
+  // the current meal (this) sent via the click event on the button triggers the editButtonHasBeenClicked function. This corresponds to the clickSender that will be sent through @Output as a new EventEmitter. Meal will go to AppComponent under the <meal-list>.
+   editButtonHasBeenClicked(mealToEdit: Meal) {
+    this.clickSender.emit(mealToEdit);
   }
 
 }
