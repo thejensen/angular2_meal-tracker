@@ -5,8 +5,10 @@ import { Meal } from './meal.model';
   selector: 'meal-list',
   template: `
     <h1>Meal List</h1>
-    <div *ngFor="let meal of childMealList">
-      <p>{{ meal.name }}</p>
+    <!--> runs through a forloop of the input from masterMealList from the AppComponent, named childComponentList here.-->
+    <div *ngFor="let currentMeal of childMealList">
+      <!-- meal-display is an element from MealComponent, which recieves each meal through the output here, which is the singular variable provided in the foreach loop through the childMealList provided through input from AppComponent.-->
+      <meal-display [meal]="currentMeal"></meal-display>
     </div>
   `
 })
