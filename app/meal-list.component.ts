@@ -17,6 +17,7 @@ import { Meal } from './meal.model';
       <meal-display [meal]="currentMeal"></meal-display>
       <!-- Clicking this button emits the currentMeal that's available through the forloop via the editButtonHasBeenClicked function -->
       <button (click)="editButtonHasBeenClicked(currentMeal)">Edit</button>
+      <hr>
     </div>
   `
 })

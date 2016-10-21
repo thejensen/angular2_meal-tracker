@@ -8,7 +8,6 @@ import { Meal } from './meal.model';
     <h4>{{ meal.name }}</h4>
     <p><strong>Details:</strong> {{ meal.details }}</p>
     <p><strong>Calories:</strong> {{ meal.calories }}</p>
-    <hr>
   </div>
   `
 })
