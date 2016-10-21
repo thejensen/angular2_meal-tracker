@@ -4,8 +4,13 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
-    <h1>My Meals</h1>
+    <div class="header">
+      <h1>Eat Like You Mean It</h1>
+      <p>If you're not quite sure where all your calories go, use this simple meal tracker to figure it out once and for all. It's not psychic, at least not yet, so make sure to enter your meals as they go down. <br> This app is about intake awareness, that's it! Please feel free to eat. Eating is for life.</p>
+      <hr>
+    </div>
     <!-- adds selector to see all meals, high calorie meals (>500kCal) and low calorie meals (<500kCal). onChange function adds a a selectedCal property to the MealListComponent. The argument passed is the target value or the option value provided in each option element. We'll need a pipe to determine whether the cal content is high or low, which goes in the forloop of meal-list-->
+    <p>View all your meals, high calorie (more than 500kCal) and low calorie (less than 500 kCal) meals to drill down your habits.</p>
     <select (change)="onChange($event.target.value)" class="filter">
       <option value="all">All Meals</option>
       <option value="highCal">High Calorie Meals</option>
