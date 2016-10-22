@@ -4,19 +4,19 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-new',
   template: `
-    <h1>New Meal</h1>
+    <h3 class="flex-item">Add a Meal</h3>
     <div>
-      <label>Name Your Meal:</label>
+      <label>Name Your Meal</label>
       <input #newName>
     </div>
     <div>
-      <label>Describe Meal:</label>
+      <label>Details</label>
       <input #newDetails>
     </div>
     <div>
-      <label>Total Calories:</label>
+      <label>Total Calories</label>
       <input #newCalories>
-      <button (click)="
+      <button class="add-button" (click)="
         addClicked(newName.value, newDetails.value, newCalories.value);
         newName.value='';
         newDetails.value='';
@@ -29,7 +29,11 @@ import { Meal } from './meal.model';
 export class MealNewComponent{
   @Output() newMealSender = new EventEmitter();
   addClicked(name: string, details: string, calories: number){
-    var newMealToAdd: Meal = new Meal(name, details, calories);
-    this.newMealSender.emit(newMealToAdd);
+    if(name || details === '') {
+      alert("Please fill out the form!")
+    } else {
+      var newMealToAdd: Meal = new Meal(name, details, calories);
+      this.newMealSender.emit(newMealToAdd);
+    }
   }
 }

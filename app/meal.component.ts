@@ -4,11 +4,13 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-display',
   template: `
-  <div>
-    <h4>{{ meal.name }}</h4>
-    <p><strong>Details:</strong> {{ meal.details }}</p>
-    <p><strong>Calories:</strong> {{ meal.calories }}</p>
-  </div>
+  <table>
+    <tr>
+      <th>{{ meal.name }} <br><br>
+      <span class="details">Details: {{ meal.details }}</span></th>
+      <th>Calories: {{ meal.calories }}</th>
+    </tr>
+  </table>
   `
 })
 

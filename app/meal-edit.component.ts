@@ -5,7 +5,7 @@ import { Meal } from './meal.model';
   selector: 'meal-edit',
   template: `
     <div *ngIf="childSelectedMeal">
-      <h1>Edit Meal</h1>
+      <h3 class="flex-item">Edit Meal</h3>
       <div>
         <label>Enter Meal Name:</label>
         <!-- ngModel is an Angular import that allows for input and output to be received and sent simultaneously. -->
