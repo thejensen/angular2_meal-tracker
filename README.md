@@ -12,7 +12,7 @@ _**If you're interested in keeping track of your meals, their calories, and sort
 ## Setup/Installation Requirements
 
 _To run app locally:_
-_In terminal, navigate to your desktop and execute the following (feel free to copy and paste all commands at once):_
+_In terminal, navigate to your desktop and execute the following. Feel free to copy and paste the following commands into your terminal:_
 
 * git clone https://github.com/thejensen/angular2_meal-tracker
 * cd angular2_meal-tracker

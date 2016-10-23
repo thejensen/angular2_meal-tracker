@@ -29,11 +29,7 @@ import { Meal } from './meal.model';
 export class MealNewComponent{
   @Output() newMealSender = new EventEmitter();
   addClicked(name: string, details: string, calories: number){
-    if(name || details === '') {
-      alert("Please fill out the form!")
-    } else {
-      var newMealToAdd: Meal = new Meal(name, details, calories);
-      this.newMealSender.emit(newMealToAdd);
-    }
+    var newMealToAdd: Meal = new Meal(name, details, calories);
+    this.newMealSender.emit(newMealToAdd);  
   }
 }
